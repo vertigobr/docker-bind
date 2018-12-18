@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+   bind:
+     build:
+       context: .
+     image: vertigo/bind
+     ports:
+       - "53:53/tcp"
+       - "53:53/udp"
+     environment:
+       WILDCARD_DNS: myapps.com=127.0.0.1
+
+   testapp:
+     image: alpine
+     depends_on:
+       - bind
+     command: ping xxx.myapps.com
+     dns: 172.18.0.1
+

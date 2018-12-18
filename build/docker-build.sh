@@ -37,4 +37,4 @@ fi
 ###
 
 # Build Docker
-run "docker build -t cytopia/bind ${CWD}"
+run "docker build -t vertigo/bind ${CWD}"
